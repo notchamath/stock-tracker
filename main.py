@@ -1,13 +1,25 @@
 import requests
+import os
+from dotenv import load_dotenv
 
+# Stock Details
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 
+# Allowed change in %
+ALLOWED_PERCENTAGE_CHANGE = 5
+
+# API Endpoints
 STOCK_ENDPOINT = "https://www.alphavantage.co/query"
 NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
 
+# Load env file
+load_dotenv('.env')
 
-ALLOWED_PERCENTAGE_CHANGE = 5
+# Get Environment Variables
+STOCK_KEY = os.getenv("STOCK_KEY")
+NEWS_KEY = os.getenv("NEWS_KEY")
+
 
 ## STEP 1: Use https://newsapi.org/docs/endpoints/everything
 # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
